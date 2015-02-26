@@ -100,8 +100,8 @@ def main():
     if 'linux' in os_name:
         # this is linux
         browsers_path = expand_links(browsers_static_info['linux'])
-    elif 'windows-7' in os_name:
-        # this is windows 7
+    elif 'windows-7' in os_name or 'windows-8' in os_name:
+        # this is windows 7 or 8
         browsers_path = expand_links(browsers_static_info['windows-7'])
     elif 'windows-xp' in os_name:
         # this is windows xp
