@@ -48,6 +48,10 @@ def expand_links(browsers_static_info):
     for browser in browsers_static_info:        
         path = concat_links(browsers_static_info[browser])
         complete_path = os.path.join(home, path)
+        # if browser is not installed
+        if not os.path.exists(complete_path):
+            continue
+
         if browser == 'firefox':
             complete_path = firefox_dir_find(complete_path)
         browsers_path[browser] = complete_path
