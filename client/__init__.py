@@ -1,6 +1,7 @@
 import os
 import sys
 import time
+import traceback
 
 import config
 import initial
@@ -44,7 +45,11 @@ def main():
             periodic.main()
             time.sleep(INTERVAL)
     except Exception as e:
-        logs.info('Error: UNEXPECTED ERROR CAUGHT. '+ str(e))
+        line = "-"*50
+        error = traceback.format_exc()
+        text = "\n" + line + "\n" + error + "\n" + line
+
+        logs.info('Error: UNEXPECTED ERROR CAUGHT. '+ str(e) + text)
     
 
 if __name__ == '__main__':
